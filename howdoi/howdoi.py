@@ -190,12 +190,10 @@ def _get_instructions(args):
         current_position = answer_number + initial_position
         args['pos'] = current_position
         answer = _get_answer(args, links)
-        if not answer:
-            continue
-        if append_header:
-            answer = ANSWER_HEADER.format(current_position, answer)
-        answer += '\n'
-        answers.append(answer)
+        if answer:
+            if append_header:
+                answer = ANSWER_HEADER.format(current_position, answer)
+            answers.append(answer + '\n')
     return '\n'.join(answers)
 
 
